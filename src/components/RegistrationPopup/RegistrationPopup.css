@@ -1,0 +1,753 @@
+@font-face {
+  font-family: "HalfBoldPixel";
+  src: url("../../assets/fonts/half_bold_pixel-7.ttf")
+    format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+
+  font-display: swap;
+}
+
+
+/* =========================================================
+   REGISTRATION POPUP OVERLAY
+========================================================= */
+
+.registration-popup-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    clamp(15px, 3vw, 35px);
+
+  box-sizing: border-box;
+
+  background:
+    rgba(0, 0, 0, 0.78);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   POPUP CARD
+========================================================= */
+
+.registration-popup {
+  position: relative;
+
+  width: 100%;
+  max-width: 650px;
+
+  min-height: 420px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    clamp(35px, 5vw, 65px)
+    clamp(28px, 5vw, 60px);
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.075);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   RED GLOW
+========================================================= */
+
+.registration-popup::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  top: -150px;
+  right: -130px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(243, 48, 14, 0.11);
+
+  filter: blur(70px);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+.registration-popup::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  left: -150px;
+  bottom: -150px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(243, 48, 14, 0.06);
+
+  filter: blur(70px);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+/* =========================================================
+   DECORATIVE CORNERS
+========================================================= */
+
+.registration-popup-corner {
+  position: absolute;
+
+  width: 65px;
+  height: 65px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TOP LEFT CORNER
+========================================================= */
+
+.registration-popup-corner.top-left {
+  top: 0;
+  left: 0;
+
+  border-top:
+    2px solid #f3300e;
+
+  border-left:
+    2px solid #f3300e;
+}
+
+
+/* =========================================================
+   BOTTOM RIGHT CORNER
+========================================================= */
+
+.registration-popup-corner.bottom-right {
+  right: 0;
+  bottom: 0;
+
+  border-right:
+    2px solid rgba(243, 48, 14, 0.55);
+
+  border-bottom:
+    2px solid rgba(243, 48, 14, 0.55);
+}
+
+
+/* =========================================================
+   TOP ACCENT LINE
+========================================================= */
+
+.registration-popup-line {
+  width: 54px;
+  height: 2px;
+
+  margin-bottom: 25px;
+
+  background: #f3300e;
+
+  box-shadow:
+    0 0 14px rgba(243, 48, 14, 0.35);
+}
+
+
+/* =========================================================
+   GEARS LABEL
+========================================================= */
+
+.registration-popup-small {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   POPUP HEADING
+========================================================= */
+
+.registration-popup h2 {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  color: #ffffff;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size:
+    clamp(42px, 6vw, 76px);
+
+  font-weight: normal;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.015em;
+}
+
+
+/* =========================================================
+   HEADING ORANGE
+========================================================= */
+
+.registration-popup h2 span {
+  color: #f3300e;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.registration-popup p {
+  width: 100%;
+  max-width: 500px;
+
+  margin:
+    27px
+    0
+    35px;
+
+  padding: 0;
+
+  color: #989898;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size:
+    clamp(13px, 1vw, 15px);
+
+  font-weight: 400;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.registration-popup-close {
+  position: absolute;
+
+  top: 22px;
+  right: 22px;
+
+  z-index: 5;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 27px;
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.registration-popup-close:hover {
+  color: #ffffff;
+
+  border-color:
+    rgba(243, 48, 14, 0.6);
+
+  background:
+    rgba(243, 48, 14, 0.1);
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.registration-popup-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+}
+
+
+/* =========================================================
+   REGISTER BUTTON
+========================================================= */
+
+.registration-popup-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 175px;
+
+  padding:
+    15px
+    22px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid #f3300e;
+
+  border-radius: 0;
+
+  background: #f3300e;
+
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+.registration-popup-button:hover {
+  transform: translateY(-4px);
+
+  background: transparent;
+
+  color: #f3300e;
+}
+
+
+/* =========================================================
+   MAYBE LATER BUTTON
+========================================================= */
+
+.registration-popup-later {
+  position: relative;
+
+  padding:
+    12px
+    0;
+
+  border: none;
+
+  background: transparent;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+.registration-popup-later::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 7px;
+
+  width: 0;
+  height: 1px;
+
+  background: #f3300e;
+
+  transition:
+    width 0.3s ease;
+}
+
+
+.registration-popup-later:hover {
+  color: #ffffff;
+}
+
+
+.registration-popup-later:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .registration-popup {
+    max-width: 600px;
+
+    min-height: 390px;
+
+    padding:
+      45px
+      40px;
+  }
+
+  .registration-popup h2 {
+    font-size:
+      clamp(40px, 8vw, 65px);
+  }
+
+  .registration-popup p {
+    max-width: 470px;
+
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .registration-popup-overlay {
+    padding: 15px;
+  }
+
+
+  .registration-popup {
+    width: 100%;
+
+    min-height: auto;
+
+    padding:
+      45px
+      27px
+      32px;
+
+    border-radius: 15px;
+  }
+
+
+  /* -------------------------------------------------------
+     CLOSE
+  ------------------------------------------------------- */
+
+  .registration-popup-close {
+    top: 15px;
+    right: 15px;
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 23px;
+  }
+
+
+  /* -------------------------------------------------------
+     ACCENT
+  ------------------------------------------------------- */
+
+  .registration-popup-line {
+    width: 42px;
+
+    margin-bottom: 20px;
+  }
+
+
+  /* -------------------------------------------------------
+     SMALL TEXT
+  ------------------------------------------------------- */
+
+  .registration-popup-small {
+    margin-bottom: 11px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+  }
+
+
+  /* -------------------------------------------------------
+     HEADING
+  ------------------------------------------------------- */
+
+  .registration-popup h2 {
+    font-size:
+      clamp(35px, 12vw, 52px);
+
+    line-height: 0.98;
+  }
+
+
+  /* -------------------------------------------------------
+     DESCRIPTION
+  ------------------------------------------------------- */
+
+  .registration-popup p {
+    margin:
+      22px
+      0
+      28px;
+
+    font-size: 12.5px;
+
+    line-height: 1.75;
+  }
+
+
+  /* -------------------------------------------------------
+     ACTIONS
+  ------------------------------------------------------- */
+
+  .registration-popup-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+  }
+
+
+  /* -------------------------------------------------------
+     REGISTER BUTTON
+  ------------------------------------------------------- */
+
+  .registration-popup-button {
+    width: 100%;
+
+    min-width: 0;
+
+    padding:
+      14px
+      20px;
+  }
+
+
+  /* -------------------------------------------------------
+     MAYBE LATER
+  ------------------------------------------------------- */
+
+  .registration-popup-later {
+    align-self: center;
+
+    font-size: 10px;
+  }
+
+
+  /* -------------------------------------------------------
+     CORNERS
+  ------------------------------------------------------- */
+
+  .registration-popup-corner {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .registration-popup {
+    padding:
+      40px
+      21px
+      27px;
+
+    border-radius: 13px;
+  }
+
+
+  .registration-popup h2 {
+    font-size: 32px;
+  }
+
+
+  .registration-popup p {
+    font-size: 12px;
+
+    line-height: 1.7;
+  }
+
+
+  .registration-popup-small {
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+  }
+
+
+  .registration-popup-close {
+    width: 33px;
+    height: 33px;
+
+    font-size: 21px;
+  }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none),
+(pointer: coarse) {
+
+  .registration-popup-close:hover {
+    transform: none;
+
+    color:
+      rgba(255, 255, 255, 0.75);
+
+    border-color:
+      rgba(255, 255, 255, 0.1);
+
+    background:
+      rgba(255, 255, 255, 0.035);
+  }
+
+
+  .registration-popup-button:hover {
+    transform: none;
+
+    background: #f3300e;
+
+    color: #ffffff;
+  }
+
+
+  .registration-popup-later:hover {
+    color:
+      rgba(255, 255, 255, 0.45);
+  }
+
+
+  .registration-popup-later:hover::after {
+    width: 0;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .registration-popup-close,
+  .registration-popup-button,
+  .registration-popup-later,
+  .registration-popup-later::after {
+    transition: none;
+  }
+}

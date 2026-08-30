@@ -1,0 +1,529 @@
+
+@font-face {
+  font-family: "HalfBoldPixel";
+  src: url("../../assets/fonts/half_bold_pixel-7.ttf")
+    format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+
+  font-display: swap;
+}
+
+
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.about {
+  width: 100%;
+  background: #050505;
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.about-container {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.about-content {
+  width: 100%;
+
+  margin: 0;
+  padding: 100px 7%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
+/*
+   IMPORTANT:
+
+   About title ko intentionally Team ke 72px se
+   visually thora chhota rakha gaya hai.
+
+   DO NOT use:
+   clamp()
+   vw
+   rem
+   100px
+*/
+
+.about-title {
+  display: block;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  color: #ffffff !important;
+
+  font-family: "HalfBoldPixel", sans-serif !important;
+
+  font-size: 64px !important;
+
+  font-weight: normal;
+
+  line-height: 0.92;
+
+  letter-spacing: -0.015em;
+
+  text-align: center;
+
+  text-transform: uppercase;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.about-subtitle {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  margin:
+    18px
+    0
+    0;
+
+  padding: 0;
+
+  color: #f3300e !important;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  letter-spacing: 4px;
+
+  text-align: center;
+
+  text-transform: uppercase;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SUBTITLE LINES
+========================================================= */
+
+/* .about-subtitle::before,
+.about-subtitle::after {
+  content: "";
+
+  display: inline-block;
+
+  width: 30px;
+
+  height: 1px;
+
+  margin:
+    0
+    10px;
+
+  vertical-align: middle;
+
+  background: #f3300e;
+} */
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.about-text {
+  display: block;
+
+  width: 100%;
+
+  margin:
+    30px
+    0
+    0;
+
+  padding: 0;
+
+  color: #cfcfcf;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 400;
+
+  line-height: 1.9;
+
+  letter-spacing: 0.1px;
+
+  word-spacing: 1px;
+
+  text-align: justify;
+
+  text-align-last: left;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1600px) {
+
+  .about-content {
+    padding:
+      120px
+      7%;
+  }
+
+
+  /* NEVER larger than 64px */
+
+  .about-title {
+    font-size: 64px !important;
+
+    line-height: 0.92;
+  }
+
+
+  .about-subtitle {
+    margin-top: 18px;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+  }
+
+
+  .about-subtitle::before,
+  .about-subtitle::after {
+    width: 32px;
+
+    margin:
+      0
+      11px;
+  }
+
+
+  .about-text {
+    margin-top: 30px;
+
+    font-size: 18px;
+
+    line-height: 2;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1400px) {
+
+  .about-content {
+    padding:
+      90px
+      7%;
+  }
+
+
+  .about-title {
+    font-size: 58px !important;
+
+    line-height: 0.92;
+  }
+
+
+  .about-subtitle {
+    margin-top: 16px;
+
+    font-size: 12px;
+
+    letter-spacing: 3.5px;
+  }
+
+
+  .about-subtitle::before,
+  .about-subtitle::after {
+    width: 28px;
+
+    margin:
+      0
+      9px;
+  }
+
+
+  .about-text {
+    margin-top: 28px;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    word-spacing: 0.8px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .about-content {
+    padding:
+      80px
+      40px;
+  }
+
+
+  .about-title {
+    font-size: 48px !important;
+
+    line-height: 0.94;
+  }
+
+
+  .about-subtitle {
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .about-subtitle::before,
+  .about-subtitle::after {
+    width: 25px;
+
+    margin:
+      0
+      8px;
+  }
+
+
+  .about-text {
+    margin-top: 26px;
+
+    font-size: 15.5px;
+
+    line-height: 1.85;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .about-content {
+    padding:
+      70px
+      20px;
+
+    align-items: flex-start;
+  }
+
+
+  .about-title {
+    width: 100%;
+
+    font-size: 42px !important;
+
+    line-height: 0.94;
+
+    letter-spacing: -0.01em;
+
+    text-align: left;
+  }
+
+
+  .about-subtitle {
+    margin-top: 13px;
+
+    font-size: 11px;
+
+    letter-spacing: 2.5px;
+
+    text-align: left;
+  }
+
+
+  .about-subtitle::before,
+  .about-subtitle::after {
+    display: none;
+  }
+
+
+  .about-text {
+    margin-top: 24px;
+
+    font-size: 14.5px;
+
+    line-height: 1.8;
+
+    letter-spacing: 0;
+
+    word-spacing: normal;
+
+    text-align: left;
+
+    text-align-last: auto;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .about-content {
+    padding:
+      60px
+      15px;
+  }
+
+
+  .about-title {
+    font-size: 34px !important;
+
+    line-height: 0.96;
+  }
+
+
+  .about-subtitle {
+    margin-top: 12px;
+
+    font-size: 10px;
+
+    letter-spacing: 2.2px;
+  }
+
+
+  .about-text {
+    margin-top: 22px;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .about-content {
+    padding:
+      52px
+      12px;
+  }
+
+
+  .about-title {
+    font-size: 32px !important;
+
+    line-height: 0.94;
+  }
+
+
+  .about-subtitle {
+    margin-top: 11px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.8px;
+  }
+
+
+  .about-text {
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none),
+(pointer: coarse) {
+
+  .about-title,
+  .about-subtitle {
+    transform: none;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about-title,
+  .about-subtitle {
+    transition: none;
+  }
+
+}
+

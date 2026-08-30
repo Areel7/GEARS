@@ -1,0 +1,1821 @@
+
+/* =========================================================
+   ALL TEAM PAGE
+========================================================= */
+
+@font-face {
+  font-family: "HalfBoldPixel";
+  src: url("../../assets/fonts/half_bold_pixel-7.ttf")
+    format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+
+  font-display: swap;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.all-team {
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  background: #050505;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.all-team-container {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding-left: 6%;
+  padding-right: 6%;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.all-team-hero {
+  width: 100%;
+
+  padding:
+    clamp(90px, 10vw, 145px)
+    0
+    clamp(65px, 8vw, 105px);
+}
+
+
+.all-team-hero-content {
+  width: min(900px, 100%);
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+
+.all-team-eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  color: #3379bb;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 3.5px;
+
+  text-transform: uppercase;
+}
+
+
+
+
+
+/* =========================================================
+   MAIN / HERO HEADING
+   NOT CHANGED
+========================================================= */
+
+.all-team-hero h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size:
+    clamp(52px, 7vw, 105px);
+
+  font-weight: normal;
+
+  line-height: .95;
+}
+
+
+.all-team-hero h1 span {
+  color: #f3300e;
+}
+
+
+.all-team-hero p {
+  width: min(720px, 100%);
+
+  margin:
+    25px auto 0;
+
+  color: #929292;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.all-team-section {
+  width: 100%;
+
+  padding:
+    clamp(70px, 8vw, 115px)
+    0;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.05);
+}
+
+
+.core-team-section {
+  background:
+    rgba(255,255,255,.008);
+}
+
+
+.presidents-section {
+  background: #050505;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.all-team-section-heading {
+  width: min(900px, 100%);
+
+  margin-bottom:
+    clamp(38px, 5vw, 58px);
+}
+
+
+.all-team-section-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 14px;
+
+  color: #f3300e;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 2.8px;
+
+  text-transform: uppercase;
+}
+
+
+.all-team-section-label::after {
+  content: "";
+
+  width: 32px;
+  height: 1px;
+
+  background: #f3300e;
+}
+
+
+/* Section heading */
+
+.all-team-section-heading h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size:
+    clamp(42px, 4.5vw, 62px);
+
+  font-weight: normal;
+
+  line-height: 1;
+
+  letter-spacing: -0.5px;
+}
+
+
+.all-team-section-heading h2 span {
+  color: #3379bb;
+}
+
+
+.all-team-section-heading p {
+  width: min(750px, 100%);
+
+  margin:
+    18px 0 0;
+
+  color: #858585;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   LEADERSHIP
+========================================================= */
+
+.leadership-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   LEADERSHIP CARD
+========================================================= */
+
+.leadership-member,
+.leadership-member-reverse {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #0a0a0a;
+
+  border:
+    1px solid
+    rgba(255,255,255,.065);
+
+  border-radius: 9px;
+
+  transition:
+    transform .28s ease,
+    border-color .28s ease;
+}
+
+
+.leadership-member:hover,
+.leadership-member-reverse:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(255,255,255,.13);
+}
+
+
+.leadership-member::before,
+.leadership-member::after,
+.leadership-member-reverse::before,
+.leadership-member-reverse::after {
+  display: none !important;
+}
+
+
+/* =========================================================
+   LEADERSHIP IMAGE
+========================================================= */
+
+.leadership-member-image {
+  position: relative;
+
+  order: 1;
+
+  width: 100%;
+
+  height: 235px;
+
+  overflow: hidden;
+
+  background: #111111;
+}
+
+
+.leadership-member-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center top;
+
+  transition:
+    transform .4s ease;
+}
+
+
+.leadership-member:hover
+.leadership-member-image img,
+.leadership-member-reverse:hover
+.leadership-member-image img {
+  transform: scale(1.025);
+}
+
+
+/* Remove image lines */
+
+.leadership-member-image::before,
+.leadership-member-image::after {
+  content: none !important;
+
+  display: none !important;
+}
+
+
+/* =========================================================
+   LEADERSHIP CONTENT
+========================================================= */
+
+.leadership-member-content {
+  position: relative;
+
+  order: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding:
+    15px
+    15px
+    17px;
+}
+
+
+/* =========================================================
+   DESIGNATION
+========================================================= */
+
+.leadership-member-content .team-designation {
+  display: block;
+
+  width: fit-content;
+
+  margin-bottom: 7px;
+
+  color: #f3300e;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.6px;
+
+  line-height: 1.3;
+
+  text-transform: uppercase;
+}
+
+
+.leadership-member-content .team-designation::before {
+  content: none !important;
+
+  display: none !important;
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.leadership-member-content h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size:
+    clamp(20px, 1.65vw, 27px);
+
+  font-weight: normal;
+
+  line-height: 1.08;
+}
+
+
+/* =========================================================
+   REMOVE RED LINE
+========================================================= */
+
+.leadership-member-content .team-red-line {
+  display: none !important;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.leadership-member-message {
+  width: 100%;
+
+  margin:
+    9px 0 0;
+
+  padding: 0;
+
+  color: #777777;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+.leadership-member-message::before {
+  content: none !important;
+
+  display: none !important;
+}
+
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+.all-team-image-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(243,48,14,.10),
+      #111111 70%
+    );
+}
+
+
+.all-team-image-placeholder span {
+  color:
+    rgba(255,255,255,.12);
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size: 70px;
+}
+
+
+/* =========================================================
+   CORE TEAM
+========================================================= */
+
+.core-team-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   CORE CARD
+========================================================= */
+
+.core-team-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #0a0a0a;
+
+  border:
+    1px solid
+    rgba(255,255,255,.065);
+
+  border-radius: 9px;
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease;
+}
+
+
+.core-team-card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(255,255,255,.13);
+}
+
+
+/* =========================================================
+   CORE IMAGE
+========================================================= */
+
+.core-team-image-wrapper {
+  position: relative;
+
+  width: 100%;
+}
+
+
+.core-team-image {
+  width: 100%;
+
+  aspect-ratio:
+    1 / 1.03;
+
+  overflow: hidden;
+
+  background: #111111;
+}
+
+
+.core-team-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center top;
+
+  transition:
+    transform .4s ease;
+}
+
+
+.core-team-card:hover
+.core-team-image img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================================
+   CORE NUMBER
+========================================================= */
+
+.core-team-number {
+  position: absolute;
+
+  top: 9px;
+  right: 9px;
+
+  padding:
+    3px 5px;
+
+  color:
+    rgba(255,255,255,.7);
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 7px;
+
+  letter-spacing: 1.2px;
+
+  background:
+    rgba(0,0,0,.5);
+
+  border-radius: 3px;
+
+  backdrop-filter: blur(6px);
+}
+
+
+/* =========================================================
+   CORE CONTENT
+========================================================= */
+
+.core-team-content {
+  padding:
+    13px
+    14px
+    15px;
+}
+
+
+.core-team-content h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size:
+    clamp(18px, 1.5vw, 25px);
+
+  font-weight: normal;
+
+  line-height: 1.08;
+}
+
+
+.core-team-content p {
+  margin:
+    6px 0 0;
+
+  color: #858585;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   GENERAL DESIGNATION
+========================================================= */
+
+.team-designation {
+  color: #f3300e;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.6px;
+
+  line-height: 1.3;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ALUMNI OF THE YEAR
+========================================================= */
+
+.alumni-section {
+  width: 100%;
+
+  padding:
+    clamp(70px, 8vw, 105px)
+    0;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.05);
+
+  background: #050505;
+}
+
+
+/* =========================================================
+   ALUMNI HEADING
+========================================================= */
+
+.alumni-heading {
+  width: min(850px, 100%);
+
+  margin:
+    0 auto 45px;
+
+  text-align: center;
+}
+
+
+.alumni-heading > span {
+  display: inline-block;
+
+  margin-bottom: 13px;
+
+  color: #f3300e;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 2.8px;
+
+  text-transform: uppercase;
+}
+
+
+
+
+
+.alumni-heading h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size:
+    clamp(42px, 4.5vw, 62px);
+
+  font-weight: normal;
+
+  line-height: 1;
+
+  letter-spacing: -0.5px;
+}
+
+
+.alumni-heading h2 strong {
+  color: #3379bb;
+
+  font-weight: normal;
+}
+
+
+.alumni-heading p {
+  width: min(700px,100%);
+
+  margin:
+    17px auto 0;
+
+  color: #858585;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 12.5px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ALUMNI GRID
+========================================================= */
+
+.alumni-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   ALUMNI CARD
+========================================================= */
+
+.alumni-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #0a0a0a;
+
+  border:
+    1px solid
+    rgba(255,255,255,.065);
+
+  border-radius: 9px;
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease;
+}
+
+
+.alumni-card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(255,255,255,.13);
+}
+
+
+/* =========================================================
+   ALUMNI IMAGE
+========================================================= */
+
+.alumni-image-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio:
+    1 / 1.02;
+
+  overflow: hidden;
+
+  background: #111111;
+}
+
+
+.alumni-image-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center top;
+
+  transition:
+    transform .4s ease;
+}
+
+
+.alumni-card:hover
+.alumni-image-wrapper img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================================
+   ALUMNI NUMBER
+========================================================= */
+
+.alumni-index {
+  position: absolute;
+
+  top: 9px;
+  right: 9px;
+
+  padding:
+    3px 5px;
+
+  color:
+    rgba(255,255,255,.7);
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 7px;
+
+  letter-spacing: 1.2px;
+
+  background:
+    rgba(0,0,0,.5);
+
+  border-radius: 3px;
+
+  backdrop-filter: blur(6px);
+}
+
+
+/* =========================================================
+   ALUMNI CONTENT
+========================================================= */
+
+.alumni-content {
+  padding:
+    13px
+    14px
+    15px;
+}
+
+
+.alumni-year {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #f3300e;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.6px;
+
+  line-height: 1.3;
+
+  text-transform: uppercase;
+}
+
+
+.alumni-year::before {
+  content: none !important;
+
+  display: none !important;
+}
+
+
+.alumni-content h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size:
+    clamp(19px, 1.6vw, 25px);
+
+  font-weight: normal;
+
+  line-height: 1.08;
+}
+
+
+.alumni-content p {
+  margin:
+    6px 0 0;
+
+  color: #858585;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   PAST PRESIDENTS
+========================================================= */
+
+.presidents-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   PRESIDENT CARD
+========================================================= */
+
+.president-card {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   PRESIDENT IMAGE
+========================================================= */
+
+.president-image {
+  width: 100%;
+
+  aspect-ratio:
+    4 / 5;
+
+  overflow: hidden;
+
+  background: #111111;
+
+  border:
+    1px solid
+    rgba(255,255,255,.065);
+
+  border-radius: 9px;
+}
+
+
+.president-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center top;
+
+  transition:
+    transform .4s ease;
+}
+
+
+.president-card:hover
+.president-image img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================================
+   PRESIDENT CONTENT
+========================================================= */
+
+.president-content {
+  padding:
+    13px
+    2px
+    0;
+}
+
+
+.president-content h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size:
+    clamp(19px, 1.6vw, 26px);
+
+  font-weight: normal;
+
+  line-height: 1.08;
+}
+
+
+.president-content span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #f3300e;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.6px;
+
+  line-height: 1.3;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1600px) {
+
+  .all-team-container {
+    max-width: 1650px;
+  }
+
+
+  .leadership-list {
+    gap: 20px;
+  }
+
+
+  .leadership-member-image {
+    height: 255px;
+  }
+
+
+  .core-team-grid {
+    gap: 18px;
+  }
+
+
+  .presidents-grid {
+    grid-template-columns:
+      repeat(5, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .leadership-list {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+  }
+
+
+  .leadership-member-image {
+    height: 210px;
+  }
+
+
+  .leadership-member-content {
+    padding:
+      13px
+      13px
+      15px;
+  }
+
+
+  .leadership-member-content h3 {
+    font-size: 21px;
+  }
+
+
+  .leadership-member-message {
+    font-size: 8px;
+  }
+
+
+  .leadership-member-content .team-designation,
+  .team-designation,
+  .alumni-year,
+  .president-content span {
+    font-size: 8.5px;
+
+    letter-spacing: 1.4px;
+  }
+
+
+  .core-team-grid {
+    gap: 13px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  /* Section headings */
+
+  .all-team-section-heading h2,
+  .alumni-heading h2 {
+    font-size: 44px;
+  }
+
+
+  /* Leadership */
+
+  .leadership-list {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+  }
+
+
+  .leadership-member-image {
+    height: 275px;
+  }
+
+
+  .leadership-member-content {
+    padding:
+      15px
+      15px
+      17px;
+  }
+
+
+  .leadership-member-content h3 {
+    font-size: 25px;
+  }
+
+
+  .leadership-member-message {
+    font-size: 9px;
+  }
+
+
+  /* Core */
+
+  .core-team-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+
+  /* Alumni */
+
+  .alumni-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  /* Presidents */
+
+  .presidents-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+
+  /* Designations */
+
+  .leadership-member-content .team-designation,
+  .team-designation,
+  .alumni-year,
+  .president-content span {
+    font-size: 8.5px;
+
+    letter-spacing: 1.4px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .all-team-container {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+
+  /* =======================================================
+     HERO
+     Main hero heading remains separate
+  ======================================================= */
+
+  .all-team-hero {
+    padding:
+      65px
+      0
+      50px;
+  }
+
+
+  .all-team-eyebrow {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    gap: 6px;
+  }
+
+
+  .all-team-eyebrow::before,
+  .all-team-eyebrow::after {
+    width: 17px;
+  }
+
+
+  .all-team-hero h1 {
+    font-size: 48px;
+  }
+
+
+  .all-team-hero p {
+    margin-top: 18px;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+  }
+
+
+  /* =======================================================
+     SECTION
+  ======================================================= */
+
+  .all-team-section {
+    padding:
+      55px
+      0;
+  }
+
+
+  .all-team-section-heading {
+    margin-bottom: 32px;
+  }
+
+
+  .all-team-section-heading h2,
+  .alumni-heading h2 {
+    font-size: 34px;
+
+    line-height: 1.02;
+  }
+
+
+  .all-team-section-heading p {
+    font-size: 11.5px;
+
+    line-height: 1.7;
+  }
+
+
+  /* =======================================================
+     LEADERSHIP
+  ======================================================= */
+
+  .leadership-list {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+
+  .leadership-member,
+  .leadership-member-reverse {
+    border-radius: 8px;
+  }
+
+
+  .leadership-member-image {
+    height: 190px;
+  }
+
+
+  .leadership-member-content {
+    padding:
+      11px
+      10px
+      13px;
+  }
+
+
+  .leadership-member-content .team-designation {
+    margin-bottom: 6px;
+
+    font-size: 7.5px;
+
+    letter-spacing: 1.2px;
+  }
+
+
+  .leadership-member-content h3 {
+    font-size: 18px;
+
+    line-height: 1.08;
+  }
+
+
+  .leadership-member-message {
+    margin-top: 7px;
+
+    font-size: 7.5px;
+
+    line-height: 1.55;
+  }
+
+
+  /* =======================================================
+     CORE TEAM
+  ======================================================= */
+
+  .core-team-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 9px;
+  }
+
+
+  .core-team-card {
+    border-radius: 8px;
+  }
+
+
+  .core-team-content {
+    padding:
+      11px
+      10px
+      13px;
+  }
+
+
+  .core-team-content h3 {
+    font-size: 18px;
+  }
+
+
+  .core-team-content p {
+    font-size: 8px;
+
+    line-height: 1.5;
+  }
+
+
+  .team-designation {
+    font-size: 7.5px;
+
+    letter-spacing: 1.2px;
+  }
+
+
+  /* =======================================================
+     ALUMNI
+  ======================================================= */
+
+  .alumni-section {
+    padding:
+      60px
+      0;
+  }
+
+
+  .alumni-heading {
+    margin-bottom: 32px;
+  }
+
+
+  .alumni-heading > span {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .alumni-heading h2 {
+    font-size: 34px;
+  }
+
+
+  .alumni-heading p {
+    font-size: 11px;
+
+    line-height: 1.65;
+  }
+
+
+  .alumni-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+
+  .alumni-card {
+    border-radius: 8px;
+  }
+
+
+  .alumni-content {
+    padding:
+      11px
+      10px
+      13px;
+  }
+
+
+  .alumni-year {
+    font-size: 7.5px;
+
+    letter-spacing: 1.2px;
+
+    margin-bottom: 6px;
+  }
+
+
+  .alumni-content h3 {
+    font-size: 18px;
+  }
+
+
+  .alumni-content p {
+    font-size: 8px;
+  }
+
+
+  /* =======================================================
+     PRESIDENTS
+  ======================================================= */
+
+  .presidents-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 16px 9px;
+  }
+
+
+  .president-image {
+    border-radius: 8px;
+  }
+
+
+  .president-content {
+    padding-top: 10px;
+  }
+
+
+  .president-content h3 {
+    font-size: 18px;
+  }
+
+
+  .president-content span {
+    font-size: 7.5px;
+
+    letter-spacing: 1.2px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .all-team-container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+
+  /* Hero */
+
+  .all-team-hero {
+    padding:
+      58px
+      0
+      45px;
+  }
+
+
+  .all-team-hero h1 {
+    font-size: 43px;
+  }
+
+
+  .all-team-hero p {
+    font-size: 11px;
+  }
+
+
+  /* Section */
+
+  .all-team-section {
+    padding:
+      50px
+      0;
+  }
+
+
+  .all-team-section-heading h2,
+  .alumni-heading h2 {
+    font-size: 31px;
+  }
+
+
+  /* Leadership */
+
+  .leadership-member-image {
+    height: 175px;
+  }
+
+
+  .leadership-member-content {
+    padding:
+      10px
+      9px
+      12px;
+  }
+
+
+  .leadership-member-content .team-designation {
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+  }
+
+
+  .leadership-member-content h3 {
+    font-size: 17px;
+  }
+
+
+  .leadership-member-message {
+    font-size: 7px;
+  }
+
+
+  /* Core */
+
+  .core-team-content h3 {
+    font-size: 17px;
+  }
+
+
+  .core-team-content p {
+    font-size: 7.5px;
+  }
+
+
+  .team-designation {
+    font-size: 7px;
+
+    letter-spacing: 1px;
+  }
+
+
+  /* Alumni */
+
+  .alumni-heading h2 {
+    font-size: 31px;
+  }
+
+
+  .alumni-heading p {
+    font-size: 10px;
+  }
+
+
+  .alumni-year {
+    font-size: 7px;
+
+    letter-spacing: 1px;
+  }
+
+
+  .alumni-content h3 {
+    font-size: 17px;
+  }
+
+
+  /* Presidents */
+
+  .president-content h3 {
+    font-size: 17px;
+  }
+
+
+  .president-content span {
+    font-size: 7px;
+
+    letter-spacing: 1px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 350px) {
+
+  .leadership-list {
+    grid-template-columns: 1fr;
+  }
+
+
+  .leadership-member-image {
+    height: 235px;
+  }
+
+
+  .leadership-member-content h3 {
+    font-size: 23px;
+  }
+
+
+  .leadership-member-message {
+    font-size: 8.5px;
+  }
+
+
+  .core-team-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .alumni-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .presidents-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) {
+
+  .leadership-member:hover,
+  .leadership-member-reverse:hover {
+    transform: none;
+
+    border-color:
+      rgba(255,255,255,.065);
+  }
+
+
+  .leadership-member:hover
+  .leadership-member-image img,
+  .leadership-member-reverse:hover
+  .leadership-member-image img {
+    transform: none;
+  }
+
+
+  .core-team-card:hover {
+    transform: none;
+
+    border-color:
+      rgba(255,255,255,.065);
+  }
+
+
+  .core-team-card:hover
+  .core-team-image img {
+    transform: none;
+  }
+
+
+  .alumni-card:hover {
+    transform: none;
+
+    border-color:
+      rgba(255,255,255,.065);
+  }
+
+
+  .alumni-card:hover
+  .alumni-image-wrapper img {
+    transform: none;
+  }
+
+
+  .president-card:hover
+  .president-image img {
+    transform: none;
+  }
+
+}
+

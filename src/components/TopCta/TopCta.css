@@ -1,0 +1,453 @@
+@font-face {
+  font-family: "HalfBoldPixel";
+
+  src:
+    url("../../assets/fonts/half_bold_pixel-7.ttf")
+    format("truetype");
+
+  font-weight: normal;
+
+  font-style: normal;
+
+  font-display: swap;
+}
+
+
+/* =========================================================
+   TOP CTA SECTION
+========================================================= */
+
+.top-cta-section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    0 clamp(16px, 6vw, 7%);
+
+  background: #050505;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.footer-cta {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(1500px, 100%);
+
+  margin: 0 auto;
+
+  padding:
+    48px clamp(22px, 4vw, 55px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  border-left:
+    1px solid rgba(243, 48, 14, 0.35);
+
+  border-right:
+    1px solid rgba(243, 48, 14, 0.12);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(243, 48, 14, 0.09),
+      rgba(255, 255, 255, 0.015) 55%
+    );
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CTA CONTENT
+========================================================= */
+
+.footer-cta-content {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   CTA LABEL
+========================================================= */
+
+.footer-cta-label {
+  display: block;
+
+  margin-bottom: 11px;
+
+  color: #3379bb;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   CTA HEADING
+========================================================= */
+
+.footer-cta h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size:
+    clamp(30px, 3.5vw, 52px);
+
+  font-weight: normal;
+
+  line-height: 1;
+}
+
+
+.footer-cta h2 span {
+  color: #3379bb;
+}
+
+
+/* =========================================================
+   CTA TEXT
+========================================================= */
+
+.footer-cta p {
+  width: min(590px, 100%);
+
+  margin: 13px 0 0;
+
+  color: #868686;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA BUTTON
+========================================================= */
+
+.footer-register-btn {
+  min-width: 230px;
+
+  height: 58px;
+
+  padding:
+    0 18px
+    0 22px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  border-radius: 8px;
+
+  background: #3379bb;
+
+  color: #ffffff;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  text-decoration: none;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   BUTTON ICON
+========================================================= */
+
+.footer-register-btn b {
+  width: 34px;
+
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background:
+    rgba(255, 255, 255, 0.15);
+
+  color: #ffffff;
+
+  font-size: 17px;
+
+  font-weight: normal;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.footer-register-btn:hover {
+  transform:
+    translateY(-3px);
+
+  
+}
+
+
+.footer-register-btn:hover b {
+  transform:
+    translate(2px, -2px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .footer-cta {
+    gap: 30px;
+  }
+
+
+  .footer-register-btn {
+    min-width: 215px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .top-cta-section {
+    padding:
+      0 16px;
+  }
+
+
+  .footer-cta {
+    padding:
+      32px 20px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 23px;
+  }
+
+
+  .footer-cta-content {
+    width: 100%;
+  }
+
+
+  .footer-cta-label {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .footer-cta h2 {
+    font-size: 34px;
+  }
+
+
+  .footer-cta p {
+    font-size: 12px;
+  }
+
+
+  .footer-register-btn {
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .top-cta-section {
+    padding:
+      0 12px;
+  }
+
+
+  .footer-cta {
+    padding:
+      28px 16px;
+  }
+
+
+  .footer-cta-label {
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+  }
+
+
+  .footer-cta h2 {
+    font-size: 29px;
+  }
+
+
+  .footer-cta p {
+    font-size: 12px;
+
+    line-height: 1.65;
+  }
+
+
+  .footer-register-btn {
+    height: 54px;
+
+    padding:
+      0 14px
+      0 17px;
+
+    gap: 15px;
+
+    font-size: 10px;
+  }
+
+
+  .footer-register-btn b {
+    width: 32px;
+
+    height: 32px;
+
+    font-size: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 350px) {
+
+  .footer-cta h2 {
+    font-size: 26px;
+  }
+
+
+  .footer-register-btn {
+    font-size: 9px;
+
+    letter-spacing: 1px;
+  }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none),
+(pointer: coarse) {
+
+  .footer-register-btn:hover {
+    transform: none;
+
+    box-shadow: none;
+  }
+
+
+  .footer-register-btn:hover b {
+    transform: none;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .footer-register-btn,
+  .footer-register-btn b {
+    transition: none;
+  }
+
+}

@@ -1,0 +1,782 @@
+
+@font-face {
+  font-family: "HalfBoldPixel";
+  src: url("../../assets/fonts/half_bold_pixel-7.ttf")
+    format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+
+  font-display: swap;
+}
+
+
+/* =========================================================
+   UPCOMING SECTION
+========================================================= */
+
+.upcoming {
+  width: 100%;
+
+  min-height: 100vh;
+
+  background: #050505;
+
+  padding:
+    120px
+    7%;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADING WRAPPER
+========================================================= */
+
+.upcoming-heading {
+  width: 100%;
+
+  max-width: 100%;
+
+  margin:
+    0
+    0
+    80px
+    0;
+
+  padding: 0;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.upcoming-heading > span {
+  display: block;
+
+  width: 100%;
+
+  margin:
+    0
+    0
+    18px
+    0;
+
+  padding: 0;
+
+  color: #3379bb;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  letter-spacing: 4px;
+
+  text-align: center;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SUBTITLE DECORATIVE LINES
+========================================================= */
+
+
+
+
+/* =========================================================
+   MAIN HEADING
+   SAME SIZE AS TEAM TITLE
+========================================================= */
+
+.upcoming-heading h2 {
+  width: 100%;
+
+  margin:
+    0
+    0
+    30px
+    0;
+
+  padding: 0;
+
+  color: #ffffff;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size: 72px;
+
+  font-weight: normal;
+
+  line-height: 0.92;
+
+  letter-spacing: -0.015em;
+
+  text-align: center;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ORANGE HIGHLIGHT
+========================================================= */
+
+.upcoming-heading h2 span {
+  color: #f3300e;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size: inherit;
+
+  font-weight: normal;
+
+  letter-spacing: inherit;
+}
+
+
+/* =========================================================
+   HEADING DESCRIPTION
+========================================================= */
+
+.upcoming-heading p {
+  width: 100%;
+
+  max-width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  color: #b8b8b8;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 400;
+
+  line-height: 1.9;
+
+  letter-spacing: 0.1px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.upcoming-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 35px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.future-card {
+  position: relative;
+
+  width: 100%;
+
+  height: 480px;
+
+  border-radius: 26px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  background: #111111;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 18px 45px
+    rgba(0, 0, 0, 0.45);
+
+  transition:
+    transform 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CARD IMAGE
+========================================================= */
+
+.future-card img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s ease;
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+========================================================= */
+
+.future-card:hover img {
+  transform: scale(1.06);
+}
+
+
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
+
+.future-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(7, 7, 7, 0.98) 0%,
+      rgba(7, 7, 7, 0.82) 28%,
+      rgba(7, 7, 7, 0.25) 65%,
+      rgba(0, 0, 0, 0) 100%
+    );
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.future-card:hover {
+  transform: translateY(-10px);
+
+  border-color:
+    rgba(243, 48, 14, 0.6);
+
+  box-shadow:
+    0 0 35px
+    rgba(243, 48, 14, 0.15),
+
+    0 30px 60px
+    rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.future-overlay {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 2;
+
+  padding: 34px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.future-overlay h3 {
+  margin:
+    0
+    0
+    14px
+    0;
+
+  color: #ffffff;
+
+  font-family:
+    "HalfBoldPixel",
+    sans-serif;
+
+  font-size: 34px;
+
+  font-weight: normal;
+
+  line-height: 1.15;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
+
+.future-overlay p {
+  max-width: 90%;
+
+  margin: 0;
+
+  color: #c6c6c6;
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 400;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CARD ANIMATION
+========================================================= */
+
+.future-overlay h3,
+.future-overlay p {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease;
+}
+
+
+.future-card:hover .future-overlay h3 {
+  transform: translateY(0);
+
+  opacity: 1;
+}
+
+
+.future-card:hover .future-overlay p {
+  transform: translateY(0);
+
+  opacity: 1;
+
+  transition-delay: 0.1s;
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1400px) {
+
+  .upcoming {
+    padding:
+      100px
+      6%;
+  }
+
+
+  .upcoming-heading {
+    margin-bottom: 70px;
+  }
+
+
+  .upcoming-heading > span {
+    font-size: 12px;
+
+    letter-spacing: 3.5px;
+  }
+
+
+  .upcoming-heading > span::before,
+  .upcoming-heading > span::after {
+    width: 28px;
+
+    margin:
+      0
+      9px;
+  }
+
+
+  .upcoming-heading h2 {
+    font-size: 60px;
+
+    line-height: 0.92;
+  }
+
+
+  .upcoming-heading p {
+    font-size: 16px;
+
+    line-height: 1.9;
+  }
+
+
+  .future-card {
+    height: 440px;
+  }
+
+
+  .future-overlay h3 {
+    font-size: 30px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .upcoming {
+    padding:
+      85px
+      40px;
+  }
+
+
+  .upcoming-heading {
+    margin-bottom: 60px;
+  }
+
+
+  .upcoming-heading > span {
+    font-size: 12px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .upcoming-heading > span::before,
+  .upcoming-heading > span::after {
+    width: 25px;
+
+    margin:
+      0
+      8px;
+  }
+
+
+  .upcoming-heading h2 {
+    font-size: 48px;
+
+    line-height: 0.94;
+  }
+
+
+  .upcoming-heading p {
+    font-size: 15.5px;
+
+    line-height: 1.85;
+  }
+
+
+  .upcoming-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 28px;
+  }
+
+
+  .future-card {
+    height: 420px;
+  }
+
+
+  .future-overlay {
+    padding: 28px;
+  }
+
+
+  .future-overlay h3 {
+    font-size: 28px;
+  }
+
+
+  .future-overlay p {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .upcoming {
+    padding:
+      70px
+      20px;
+  }
+
+
+  .upcoming-heading {
+    margin-bottom: 50px;
+
+    text-align: left;
+  }
+
+
+  .upcoming-heading > span {
+    margin-bottom: 13px;
+
+    font-size: 11px;
+
+    letter-spacing: 2.5px;
+
+    text-align: left;
+  }
+
+
+  .upcoming-heading > span::before,
+  .upcoming-heading > span::after {
+    display: none;
+  }
+
+
+  .upcoming-heading h2 {
+    font-size: 42px;
+
+    line-height: 0.94;
+
+    letter-spacing: -0.01em;
+
+    text-align: left;
+  }
+
+
+  .upcoming-heading p {
+    font-size: 14.5px;
+
+    line-height: 1.8;
+
+    text-align: left;
+  }
+
+
+  .upcoming-grid {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+
+  .future-card {
+    height: 390px;
+  }
+
+
+  .future-overlay {
+    padding: 24px;
+  }
+
+
+  .future-overlay h3 {
+    font-size: 24px;
+  }
+
+
+  .future-overlay p {
+    max-width: 100%;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .upcoming {
+    padding:
+      60px
+      15px;
+  }
+
+
+  .upcoming-heading {
+    margin-bottom: 45px;
+  }
+
+
+  .upcoming-heading > span {
+    margin-bottom: 12px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .upcoming-heading h2 {
+    font-size: 34px;
+
+    line-height: 0.96;
+
+    margin-bottom: 22px;
+  }
+
+
+  .upcoming-heading p {
+    font-size: 14px;
+
+    line-height: 1.75;
+  }
+
+
+  .future-card {
+    height: 340px;
+
+    border-radius: 18px;
+  }
+
+
+  .future-overlay {
+    padding: 20px;
+  }
+
+
+  .future-overlay h3 {
+    font-size: 22px;
+
+    margin-bottom: 10px;
+  }
+
+
+  .future-overlay p {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .upcoming {
+    padding:
+      52px
+      12px;
+  }
+
+
+  .upcoming-heading {
+    margin-bottom: 40px;
+  }
+
+
+  .upcoming-heading > span {
+    font-size: 9px;
+
+    letter-spacing: 1.8px;
+  }
+
+
+  .upcoming-heading h2 {
+    font-size: 32px;
+
+    line-height: 0.96;
+  }
+
+
+  .upcoming-heading p {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+
+  .future-card {
+    height: 320px;
+  }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none),
+(pointer: coarse) {
+
+  .future-card:hover img {
+    transform: none;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .future-card,
+  .future-card img,
+  .future-overlay h3,
+  .future-overlay p {
+    transition: none;
+  }
+}
+

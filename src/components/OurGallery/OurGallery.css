@@ -1,0 +1,1425 @@
+/* =========================================================
+   OUR GALLERY PAGE
+========================================================= */
+
+
+/* =========================================================
+   FONT
+========================================================= */
+
+@font-face {
+  font-family: "HalfBoldPixel";
+  src: url("../../assets/fonts/half_bold_pixel-7.ttf")
+    format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+
+  font-display: swap;
+}
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.our-gallery {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  margin-top: 40px;
+}
+
+
+/* =========================================================
+   BACKGROUND WORD
+========================================================= */
+
+.gallery-bg-word {
+  position: absolute;
+
+  pointer-events: none;
+  user-select: none;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size: clamp(180px, 20vw, 420px);
+
+  line-height: 0.8;
+
+  white-space: nowrap;
+
+  opacity: 0.025;
+
+  z-index: 0;
+}
+
+
+.gallery-bg-word-one {
+  top: 80px;
+  right: -100px;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.our-gallery-container {
+  position: relative;
+
+  width: min(1700px, 94%);
+
+  margin: 0 auto;
+
+  padding: 90px 0 120px;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   GALLERY HEADER
+========================================================= */
+
+.gallery-header {
+  position: relative;
+
+  max-width: 850px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+
+  z-index: 2;
+}
+
+
+.gallery-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  opacity: 0.55;
+  
+}
+
+
+.gallery-header h1 {
+  margin: 0;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size: clamp(45px, 6vw, 82px);
+
+  line-height: 0.95;
+
+  letter-spacing: -2px;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   GALLERY TITLE ORANGE
+========================================================= */
+
+.gallery-header h1 span {
+  color: #e9521e ;
+
+  opacity: 1;
+
+  text-shadow:
+    0 0 18px rgba(255, 122, 0, 0.16);
+}
+
+
+.gallery-header p {
+  max-width: 700px;
+
+  margin: 24px auto 0;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   GALLERY GRID
+========================================================= */
+
+.gallery-grid {
+  position: relative;
+
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 8px;
+
+  grid-auto-flow: dense;
+
+  grid-auto-rows: 125px;
+
+  align-items: stretch;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   GALLERY CARD
+========================================================= */
+
+.our-gallery-card {
+  position: relative;
+
+  width: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  line-height: 0;
+
+  isolation: isolate;
+
+  /*
+    IMPORTANT:
+    Do NOT use content-visibility:auto here.
+    It can cause gallery images to be
+    re-rendered/reloaded when scrolling.
+  */
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+
+/* =========================================================
+   GALLERY IMAGE
+========================================================= */
+
+.our-gallery-card img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  vertical-align: middle;
+
+  /*
+    Keep image rendering stable.
+  */
+  backface-visibility: hidden;
+
+  transform: translateZ(0) scale(1.001);
+
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+}
+
+
+/* =========================================================
+   IMAGE ORIENTATION
+========================================================= */
+
+.our-gallery-card.landscape {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+
+.our-gallery-card.portrait {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+
+.our-gallery-card.square {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+
+/* =========================================================
+   DENSE GALLERY PATTERN
+========================================================= */
+
+.our-gallery-card:nth-child(6n + 1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+
+.our-gallery-card:nth-child(6n + 2) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+
+.our-gallery-card:nth-child(6n + 3) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+
+.our-gallery-card:nth-child(6n + 4) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+
+.our-gallery-card:nth-child(6n + 5) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+
+.our-gallery-card:nth-child(6n + 6) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+
+/* =========================================================
+   GALLERY HOVER
+========================================================= */
+
+.our-gallery-card:hover {
+  z-index: 10;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 35px rgba(255, 122, 0, 0.12);
+}
+
+
+.our-gallery-card:hover img {
+  transform: scale(1.06);
+
+  /*
+    Very subtle orange warmth on image hover.
+  */
+  filter:
+    brightness(0.72)
+    saturate(1.15);
+}
+
+
+/* =========================================================
+   GALLERY OVERLAY
+========================================================= */
+
+.gallery-card-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: 18px;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.35s ease,
+    background 0.35s ease;
+
+  line-height: normal;
+
+  z-index: 3;
+
+  /*
+    Orange hover overlay.
+  */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 122, 0, 0.10) 0%,
+      rgba(0, 0, 0, 0.05) 35%,
+      rgba(0, 0, 0, 0.72) 100%
+    );
+}
+
+
+.our-gallery-card:hover .gallery-card-overlay {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   GALLERY NUMBER
+========================================================= */
+
+.gallery-number {
+  align-self: flex-end;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  line-height: 1;
+
+  padding: 7px 9px;
+
+  border-radius: 7px;
+
+  color: #e9521e ;
+
+  background: rgba(0, 0, 0, 0.52);
+
+  border: 1px solid rgba(255, 122, 0, 0.28);
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   GALLERY OVERLAY BOTTOM
+========================================================= */
+
+.gallery-overlay-bottom {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.gallery-overlay-bottom p {
+  margin: 0;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  line-height: 1.2;
+
+  text-transform: uppercase;
+
+  color: #ff7a00;
+
+  opacity: 0.95;
+}
+
+
+.gallery-overlay-bottom h3 {
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  line-height: 1.25;
+
+  color: #ff7a00;
+
+  text-shadow:
+    0 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+
+/* =========================================================
+   TIMELINE HEADER
+========================================================= */
+
+.timeline-header {
+  position: relative;
+
+  max-width: 800px;
+
+  margin: 150px auto 65px;
+
+  text-align: center;
+
+  z-index: 2;
+}
+
+
+.timeline-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  opacity: 0.55;
+
+  color: #e9521e ;
+}
+
+
+.timeline-header h2 {
+  margin: 0;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size: clamp(35px, 5vw, 68px);
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TIMELINE HEADING ACCENT
+========================================================= */
+
+.timeline-header h2 span {
+  color: #3379bb;
+
+  opacity: 1;
+
+  text-shadow:
+    0 0 18px rgba(255, 122, 0, 0.16);
+}
+
+
+.timeline-header p {
+  max-width: 650px;
+
+  margin: 22px auto 0;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   TIMELINE WRAPPER
+========================================================= */
+
+.timeline-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  padding: 35px 0 25px;
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   TIMELINE SCROLL
+========================================================= */
+
+.timeline-scroll {
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 70px;
+
+  width: 100%;
+
+  /*
+    Horizontal scrolling stays enabled.
+  */
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+  padding: 0 30px 30px;
+
+  /*
+    HIDE SCROLLBAR
+  */
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+
+  -webkit-overflow-scrolling: touch;
+
+  scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   REMOVE WEBKIT SCROLLBAR
+========================================================= */
+
+.timeline-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+
+  display: none;
+}
+
+
+.timeline-scroll::-webkit-scrollbar-track {
+  display: none;
+}
+
+
+.timeline-scroll::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+
+/* =========================================================
+   OLD TIMELINE LINE
+========================================================= */
+
+.timeline-line {
+  display: none;
+}
+
+
+/* =========================================================
+   TIMELINE CARD
+========================================================= */
+
+.timeline-card {
+  position: relative;
+
+  flex: 0 0 250px;
+
+  width: 250px;
+
+  min-width: 250px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 0;
+
+  background: transparent;
+
+  z-index: 2;
+
+  text-align: center;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 25px;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  letter-spacing: -0.5px;
+
+  color: rgba(255, 255, 255, 0.95);
+}
+
+
+/* =========================================================
+   TIMELINE YEAR
+========================================================= */
+
+.timeline-year {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.95);
+
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   TIMELINE YEAR HOVER
+========================================================= */
+
+.timeline-card:hover .timeline-year {
+  color: #e9521e ;
+
+  text-shadow:
+    0 0 14px rgba(255, 122, 0, 0.22);
+}
+
+
+/* =========================================================
+   TIMELINE DOTTED CONNECTOR
+   THIS IS THE IMPORTANT FIX
+
+   Each card draws a line from its own dot
+   to the next card's dot.
+
+   Therefore the line ALWAYS reaches the
+   final timeline item correctly.
+========================================================= */
+
+.timeline-card:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  /*
+    Start exactly from the center of this dot.
+  */
+  left: 50%;
+
+  /*
+    Dot center:
+    48px margin + 6px dot center.
+  */
+  top: 54px;
+
+  /*
+    Card width + gap.
+    250px card + 70px gap = 320px.
+  */
+  width: calc(100% + 70px);
+
+  height: 1px;
+
+  /*
+    Dotted/dashed timeline.
+  */
+  border-top: 1px dashed #e9521e ;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   TIMELINE DOT
+========================================================= */
+
+.timeline-dot {
+  position: relative;
+
+  width: 12px;
+
+  height: 12px;
+
+  margin: 48px auto 0;
+
+  border-radius: 50%;
+
+  background: #e9521e ;
+
+  
+  z-index: 5;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   VERTICAL CONNECTOR
+========================================================= */
+
+.timeline-dot::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 100%;
+
+  width: 1px;
+
+  height: 48px;
+
+  transform: translateX(-50%);
+
+  background: #e9521e ;
+}
+
+
+/* =========================================================
+   TIMELINE DOT HOVER
+========================================================= */
+
+.timeline-card:hover .timeline-dot {
+  transform: scale(1.15);
+
+  box-shadow:
+    0 0 0 7px rgba(255, 122, 0, 0.13),
+    0 0 20px rgba(255, 122, 0, 0.30);
+}
+
+
+/* =========================================================
+   TIMELINE CONTENT
+========================================================= */
+
+.timeline-content {
+  position: relative;
+
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 0 10px;
+
+  text-align: center;
+
+  line-height: normal;
+}
+
+
+/* =========================================================
+   ACHIEVEMENT HEADING
+========================================================= */
+
+.timeline-content h3 {
+  margin: 0 0 9px;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size: 15px;
+
+  font-weight: normal;
+
+  line-height: 1.35;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  opacity: 0.9;
+
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =========================================================
+   ACHIEVEMENT DESCRIPTION
+========================================================= */
+
+.timeline-content p {
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+
+  color: rgba(255, 255, 255, 0.70);
+
+  opacity: 0.48;
+}
+
+
+/* =========================================================
+   TIMELINE CONTENT HOVER
+========================================================= */
+
+.timeline-card:hover .timeline-content h3 {
+  color: #ff7a00;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1500px) {
+
+  .our-gallery-container {
+    width: min(1750px, 94%);
+  }
+
+
+  .gallery-grid {
+    grid-template-columns:
+      repeat(5, minmax(0, 1fr));
+
+    grid-auto-rows: 125px;
+
+    gap: 8px;
+  }
+
+
+  /* Timeline */
+
+  .timeline-scroll {
+    gap: 85px;
+
+    padding-left: 40px;
+
+    padding-right: 40px;
+  }
+
+
+  .timeline-card {
+    flex-basis: 270px;
+
+    width: 270px;
+
+    min-width: 270px;
+  }
+
+
+  /*
+    270px card + 85px gap.
+  */
+  .timeline-card:not(:last-child)::after {
+    width: calc(100% + 85px);
+  }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .our-gallery-container {
+    width: 94%;
+  }
+
+
+  .gallery-grid {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+
+    grid-auto-rows: 125px;
+
+    gap: 8px;
+  }
+
+
+  /* Timeline */
+
+  .timeline-scroll {
+    gap: 55px;
+  }
+
+
+  .timeline-card {
+    flex-basis: 230px;
+
+    width: 230px;
+
+    min-width: 230px;
+  }
+
+
+  /*
+    230px card + 55px gap.
+  */
+  .timeline-card:not(:last-child)::after {
+    width: calc(100% + 55px);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .our-gallery-container {
+    width: 92%;
+
+    padding-top: 70px;
+  }
+
+
+  .gallery-header {
+    margin-bottom: 40px;
+  }
+
+
+  .gallery-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    grid-auto-rows: 120px;
+
+    gap: 7px;
+  }
+
+
+  .our-gallery-card {
+    border-radius: 16px;
+  }
+
+
+  .gallery-card-overlay {
+    padding: 14px;
+  }
+
+
+  .gallery-overlay-bottom h3 {
+    font-size: 13px;
+  }
+
+
+  /* =======================================================
+     TIMELINE TABLET
+  ======================================================= */
+
+  .timeline-header {
+    margin-top: 120px;
+  }
+
+
+  .timeline-wrapper {
+    padding-top: 25px;
+  }
+
+
+  .timeline-scroll {
+    gap: 45px;
+
+    padding-left: 25px;
+
+    padding-right: 25px;
+
+    padding-bottom: 28px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
+  }
+
+
+  .timeline-scroll::-webkit-scrollbar {
+    display: none;
+
+    width: 0;
+
+    height: 0;
+  }
+
+
+  .timeline-card {
+    flex: 0 0 220px;
+
+    width: 220px;
+
+    min-width: 220px;
+
+    font-size: 23px;
+  }
+
+
+  /*
+    220px card + 45px gap.
+  */
+  .timeline-card:not(:last-child)::after {
+    width: calc(100% + 45px);
+
+    top: 52px;
+  }
+
+
+  .timeline-content h3 {
+    font-size: 14px;
+  }
+
+
+  .timeline-content p {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .our-gallery-container {
+    width: 94%;
+
+    padding-top: 60px;
+
+    padding-bottom: 90px;
+  }
+
+
+  /* =======================================================
+     GALLERY MOBILE
+  ======================================================= */
+
+  .gallery-header {
+    margin-bottom: 32px;
+  }
+
+
+  .gallery-header h1 {
+    font-size: 42px;
+
+    letter-spacing: -1px;
+  }
+
+
+  .gallery-header p {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+
+  .gallery-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    grid-auto-rows: 115px;
+
+    gap: 6px;
+  }
+
+
+  .our-gallery-card:nth-child(6n + 1) {
+    grid-column: span 2;
+
+    grid-row: span 2;
+  }
+
+
+  .our-gallery-card:nth-child(6n + 2) {
+    grid-column: span 1;
+
+    grid-row: span 1;
+  }
+
+
+  .our-gallery-card:nth-child(6n + 3) {
+    grid-column: span 1;
+
+    grid-row: span 2;
+  }
+
+
+  .our-gallery-card:nth-child(6n + 4) {
+    grid-column: span 1;
+
+    grid-row: span 1;
+  }
+
+
+  .our-gallery-card:nth-child(6n + 5) {
+    grid-column: span 1;
+
+    grid-row: span 1;
+  }
+
+
+  .our-gallery-card:nth-child(6n + 6) {
+    grid-column: span 2;
+
+    grid-row: span 1;
+  }
+
+
+  .our-gallery-card {
+    border-radius: 13px;
+  }
+
+
+  .gallery-card-overlay {
+    padding: 11px;
+  }
+
+
+  .gallery-number {
+    font-size: 8px;
+
+    padding: 5px 7px;
+  }
+
+
+  .gallery-overlay-bottom p {
+    font-size: 7px;
+  }
+
+
+  .gallery-overlay-bottom h3 {
+    font-size: 11px;
+  }
+
+
+  /* =======================================================
+     TIMELINE MOBILE
+  ======================================================= */
+
+  .timeline-header {
+    margin-top: 100px;
+
+    margin-bottom: 45px;
+  }
+
+
+  .timeline-header h2 {
+    font-size: 38px;
+  }
+
+
+  .timeline-header p {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+
+  .timeline-wrapper {
+    width: 100%;
+
+    padding-top: 20px;
+  }
+
+
+  .timeline-scroll {
+    gap: 35px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    padding-left: 20px;
+
+    padding-right: 20px;
+
+    padding-bottom: 28px;
+
+    -webkit-overflow-scrolling: touch;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
+  }
+
+
+  .timeline-scroll::-webkit-scrollbar {
+    display: none;
+
+    width: 0;
+
+    height: 0;
+  }
+
+
+  /* =======================================================
+     TIMELINE ITEM MOBILE
+  ======================================================= */
+
+  .timeline-card {
+    flex: 0 0 190px;
+
+    width: 190px;
+
+    min-width: 190px;
+
+    font-size: 22px;
+  }
+
+
+  /*
+    190px card + 35px gap.
+  */
+  .timeline-card:not(:last-child)::after {
+    width: calc(100% + 35px);
+
+    top: 48px;
+
+    border-top-color: rgba(255, 122, 0, 0.40);
+  }
+
+
+  /* =======================================================
+     DOT MOBILE
+  ======================================================= */
+
+  .timeline-dot {
+    width: 11px;
+
+    height: 11px;
+
+    margin-top: 43px;
+
+    background: #ff7a00;
+
+    box-shadow:
+      0 0 0 5px rgba(255, 122, 0, 0.10),
+      0 0 12px rgba(255, 122, 0, 0.20);
+  }
+
+
+  .timeline-dot::before {
+    height: 43px;
+
+    background: rgba(255, 122, 0, 0.50);
+  }
+
+
+  /* =======================================================
+     ACHIEVEMENT MOBILE
+  ======================================================= */
+
+  .timeline-content {
+    margin-top: 18px;
+
+    padding: 0 5px;
+  }
+
+
+  .timeline-content h3 {
+    font-size: 13px;
+
+    margin-bottom: 7px;
+  }
+
+
+  .timeline-content p {
+    font-size: 10px;
+
+    line-height: 1.6;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .gallery-grid {
+    grid-auto-rows: 105px;
+
+    gap: 5px;
+  }
+
+
+  .our-gallery-card {
+    border-radius: 11px;
+  }
+
+
+  .gallery-card-overlay {
+    padding: 9px;
+  }
+
+
+  .gallery-overlay-bottom h3 {
+    font-size: 10px;
+  }
+
+
+  /* =======================================================
+     TIMELINE
+  ======================================================= */
+
+  .timeline-scroll {
+    gap: 30px;
+
+    padding-left: 15px;
+
+    padding-right: 15px;
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
+  }
+
+
+  .timeline-scroll::-webkit-scrollbar {
+    display: none;
+
+    width: 0;
+
+    height: 0;
+  }
+
+
+  .timeline-card {
+    flex: 0 0 175px;
+
+    width: 175px;
+
+    min-width: 175px;
+  }
+
+
+  /*
+    175px card + 30px gap.
+  */
+  .timeline-card:not(:last-child)::after {
+    width: calc(100% + 30px);
+
+    top: 48px;
+  }
+
+
+  .timeline-content h3 {
+    font-size: 12px;
+  }
+
+
+  .timeline-content p {
+    font-size: 10px;
+  }
+}

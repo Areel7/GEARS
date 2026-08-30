@@ -1,0 +1,852 @@
+@font-face {
+  font-family: "HalfBoldPixel";
+  src: url("../../assets/fonts/half_bold_pixel-7.ttf")
+    format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.about-page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(243, 48, 14, 0.09),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 72%,
+      rgba(243, 48, 14, 0.05),
+      transparent 26%
+    ),
+    #050505;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.about-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding-left: clamp(20px, 4vw, 60px);
+  padding-right: clamp(20px, 4vw, 60px);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.about-bg-word {
+  position: absolute;
+
+  z-index: 0;
+
+  pointer-events: none;
+  user-select: none;
+
+  color: rgba(255, 255, 255, 0.018);
+
+  font-family: "HalfBoldPixel", sans-serif;
+  font-weight: normal;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   BACKGROUND WORD ONE
+========================================================= */
+
+.about-bg-word-one {
+  top: 12%;
+  left: -2%;
+
+  font-size: clamp(110px, 18vw, 300px);
+
+  transform: rotate(-6deg);
+}
+
+
+/* =========================================================
+   BACKGROUND WORD TWO
+========================================================= */
+
+.about-bg-word-two {
+  right: 1%;
+  bottom: 3%;
+
+  font-size: clamp(130px, 20vw, 330px);
+}
+
+
+/* =========================================================
+   ABOUT HERO
+========================================================= */
+
+.about-hero {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    clamp(90px, 9vw, 145px)
+    0
+    clamp(80px, 8vw, 125px);
+}
+
+
+/* =========================================================
+   ABOUT INTRO
+========================================================= */
+
+.about-intro {
+  width: 100%;
+  max-width: 1450px;
+
+  margin: 0 auto 80px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.about-eyebrow {
+  display: flex;
+
+  width: fit-content;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin: 0 auto 20px;
+
+  color: #3379bb;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   EYEBROW LINES
+========================================================= */
+
+
+
+
+/* =========================================================
+   ABOUT TITLE
+========================================================= */
+
+.about-title {
+  display: block;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  color: #ffffff;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size: clamp(52px, 7vw, 100px);
+
+  font-weight: normal;
+
+  line-height: 1;
+
+  letter-spacing: -0.015em;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   ABOUT TITLE ORANGE
+========================================================= */
+
+.about-title span {
+  color: #f3300e;
+}
+
+
+/* =========================================================
+   ABOUT DESCRIPTION
+========================================================= */
+
+.about-description {
+  display: block;
+
+  width: 100%;
+  max-width: 1350px;
+
+  margin: 30px auto 0;
+  padding: 0;
+
+  color: #a8a8a8;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1.85;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MISSION + VISION GRID
+========================================================= */
+
+.about-purpose-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: clamp(20px, 2.2vw, 32px);
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   PURPOSE CARD
+========================================================= */
+
+.purpose-card {
+  position: relative;
+
+  min-width: 0;
+  min-height: 470px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding:
+    clamp(30px, 3.2vw, 48px)
+    clamp(26px, 3vw, 44px);
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.075);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  box-shadow:
+    0 25px 65px rgba(0, 0, 0, 0.23);
+
+  isolation: isolate;
+
+  transition:
+    transform 0.4s cubic-bezier(.22, 1, .36, 1),
+    border-color 0.4s ease,
+    background 0.4s ease;
+}
+
+
+/* =========================================================
+   CARD GLOW
+========================================================= */
+
+.purpose-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(243, 48, 14, 0.075);
+
+  filter: blur(60px);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+/* =========================================================
+   MISSION GLOW
+========================================================= */
+
+.mission-card::before {
+  left: -110px;
+  bottom: -110px;
+}
+
+
+/* =========================================================
+   VISION GLOW
+========================================================= */
+
+.vision-card::before {
+  top: -110px;
+  right: -110px;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.purpose-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(243, 48, 14, 0.42);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(243, 48, 14, 0.018)
+    );
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.purpose-card-top {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 55px;
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.purpose-number {
+  color:
+    rgba(255, 255, 255, 0.3);
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   CARD LABEL
+========================================================= */
+
+.purpose-label {
+  color: #f3300e;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   CARD HEADING
+========================================================= */
+
+.purpose-card h2 {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  color: #ffffff;
+
+  font-family: "HalfBoldPixel", sans-serif;
+
+  font-size: clamp(34px, 3.5vw, 55px);
+
+  font-weight: normal;
+
+  line-height: 1.05;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   CARD HEADING ORANGE
+========================================================= */
+
+.purpose-card h2 span {
+  color: #3379bb;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
+
+.purpose-card p {
+  width: 100%;
+  max-width: 560px;
+
+  margin:
+    clamp(24px, 2.5vw, 32px)
+    0
+    0;
+
+  padding: 0;
+
+  color: #989898;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: clamp(13px, 0.95vw, 15px);
+
+  font-weight: 400;
+
+  line-height: 1.85;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   BOTTOM RED LINE
+========================================================= */
+
+.purpose-line {
+  width: 54px;
+  height: 2px;
+
+  margin-top: auto;
+
+  padding-top: 34px;
+
+  border-bottom:
+    2px solid #f3300e;
+
+  box-sizing: content-box;
+}
+
+
+/* =========================================================
+   EXTRA LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1600px) {
+
+  .about-container {
+    max-width: 1600px;
+  }
+
+  .about-intro {
+    width: 100%;
+    max-width: 1500px;
+
+    margin-bottom: 85px;
+  }
+
+  .about-description {
+    width: 100%;
+    max-width: 1400px;
+
+    font-size: 18px;
+
+    line-height: 1.85;
+  }
+
+  .about-purpose-grid {
+    gap: 34px;
+  }
+
+  .purpose-card {
+    min-height: 500px;
+  }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1180px) {
+
+  .about-container {
+    max-width: 1200px;
+
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .about-hero {
+    padding:
+      100px
+      0
+      90px;
+  }
+
+  .about-intro {
+    max-width: 1050px;
+
+    margin-bottom: 60px;
+  }
+
+  .about-description {
+    max-width: 950px;
+
+    font-size: 16px;
+  }
+
+  .purpose-card {
+    min-height: 440px;
+
+    padding:
+      36px
+      32px;
+
+    border-radius: 19px;
+  }
+
+  .purpose-card-top {
+    margin-bottom: 50px;
+  }
+
+  .purpose-card h2 {
+    font-size: 40px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .about-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .about-hero {
+    padding:
+      82px
+      0
+      72px;
+  }
+
+  .about-intro {
+    max-width: 720px;
+
+    margin-bottom: 48px;
+  }
+
+  .about-title {
+    font-size:
+      clamp(48px, 9vw, 72px);
+  }
+
+  .about-description {
+    max-width: 680px;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+  }
+
+  .about-purpose-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .purpose-card {
+    min-height: 390px;
+
+    padding:
+      34px
+      30px;
+  }
+
+  .purpose-card-top {
+    margin-bottom: 48px;
+  }
+
+  .purpose-card h2 {
+    font-size:
+      clamp(38px, 6.5vw, 52px);
+  }
+
+  .purpose-card p {
+    max-width: 650px;
+  }
+
+  .about-bg-word-one {
+    top: 8%;
+    left: -12%;
+  }
+
+  .about-bg-word-two {
+    right: -8%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .about-container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .about-hero {
+    padding:
+      68px
+      0
+      56px;
+  }
+
+  .about-intro {
+    max-width: 100%;
+
+    margin-bottom: 38px;
+  }
+
+  .about-eyebrow {
+    gap: 7px;
+
+    margin-bottom: 16px;
+
+    font-size: 9px;
+
+    letter-spacing: 2.4px;
+  }
+
+  .about-eyebrow::before,
+  .about-eyebrow::after {
+    width: 18px;
+  }
+
+  .about-title {
+    width: 100%;
+
+    font-size:
+      clamp(42px, 15vw, 61px);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.01em;
+  }
+
+  .about-description {
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 22px;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+  .about-purpose-grid {
+    gap: 14px;
+  }
+
+  .purpose-card {
+    min-height: auto;
+
+    padding:
+      27px
+      21px
+      25px;
+
+    border-radius: 15px;
+  }
+
+  .purpose-card-top {
+    margin-bottom: 37px;
+  }
+
+  .purpose-number {
+    font-size: 10px;
+  }
+
+  .purpose-label {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+  .purpose-card h2 {
+    font-size:
+      clamp(31px, 10vw, 42px);
+
+    line-height: 1.04;
+  }
+
+  .purpose-card p {
+    margin-top: 20px;
+
+    font-size: 12.5px;
+
+    line-height: 1.75;
+  }
+
+  .purpose-line {
+    width: 42px;
+
+    padding-top: 27px;
+  }
+
+  .about-bg-word {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .about-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .about-hero {
+    padding:
+      58px
+      0
+      48px;
+  }
+
+  .about-title {
+    font-size: 39px;
+  }
+
+  .about-description {
+    font-size: 12px;
+  }
+
+  .purpose-card {
+    padding:
+      24px
+      18px
+      22px;
+
+    border-radius: 13px;
+  }
+
+  .purpose-card-top {
+    margin-bottom: 32px;
+  }
+
+  .purpose-card h2 {
+    font-size: 29px;
+  }
+
+  .purpose-card p {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none),
+(pointer: coarse) {
+
+  .purpose-card:hover {
+    transform: none;
+
+    border-color:
+      rgba(255, 255, 255, 0.075);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .purpose-card {
+    transition: none;
+  }
+}

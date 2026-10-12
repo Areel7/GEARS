@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./Hero.css";
 
 const Hero = () => {
@@ -47,14 +49,14 @@ const Hero = () => {
         {/* Buttons */}
         <div className="hero-actions">
 
-          <a href="#projects" className="hero-btn hero-btn-primary">
-            <span>REGISTER NOW</span>
+          <Link to="/contact" className="hero-btn hero-btn-primary">
+            <span>CONTACT NOW</span>
             <span className="btn-arrow">↗</span>
-          </a>
+          </Link>
 
-          <a href="#about" className="hero-btn hero-btn-secondary">
+          <Link to="/about" className="hero-btn hero-btn-secondary">
             <span>ABOUT GEARS</span>
-          </a>
+          </Link>
 
         </div>
 
@@ -110,7 +112,7 @@ const Hero = () => {
 
 
       {/* Scroll */}
-      <a href="#projects" className="hero-scroll">
+      <a href="#about" className="hero-scroll">
         <span>SCROLL</span>
 
         <div className="scroll-line">

@@ -694,18 +694,30 @@
 
 
 /* ===================================
-   TOUCH DEVICES
+   NO HOVER AVAILABLE
+
+   Tablets and phones cannot hover, so the name and
+   designation are shown on the card from the start
+   instead of being revealed. The image zoom is the
+   only part of the effect that is dropped.
 =================================== */
 
 @media (hover: none),
-(pointer: coarse) {
+(pointer: coarse),
+(max-width: 1024px) {
 
   .team-card:hover img {
     transform: none;
   }
 
-  .team-card:hover .team-overlay {
-    opacity: 0;
+  .team-overlay {
+    opacity: 1;
+  }
+
+  .team-overlay h3,
+  .team-overlay p,
+  .line {
+    transform: translateY(0);
   }
 
 }

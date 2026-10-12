@@ -1,9 +1,37 @@
 import { useEffect, useRef, useState } from "react";
 import "./MemberTeam.css";
-import members from "./MemberData";
+import fallbackMembers from "./MemberData";
+
+import { publicApi } from "../../services/api";
+import { useRemoteData } from "../../hooks/useRemoteData";
 
 const MemberTeam = () => {
-  const [activeMember, setActiveMember] = useState(members[0]);
+  const { data: members } = useRemoteData(
+    publicApi.home,
+    (response) => response?.coreMembers,
+    fallbackMembers
+  );
+
+  /*
+    Only the selected id is stored. The active member is derived from
+    it, so swapping the bundled list for the backend one can never
+    leave a stale selection behind.
+  */
+  const [activeId, setActiveId] = useState(members[0]?.id);
+
+  const activeMember =
+    members.find((item) => item.id === activeId) || members[0];
+
+  /*
+    The scroll handlers below are attached once and read the member
+    list from a ref, so swapping in the backend data does not need to
+    tear down and rebuild the listeners.
+  */
+  const membersRef = useRef(members);
+
+  useEffect(() => {
+    membersRef.current = members;
+  });
 
   const galleryRef = useRef(null);
 
@@ -70,17 +98,11 @@ const MemberTeam = () => {
       }
     });
 
-    const closestMember = members[closestIndex];
+    const closestMember = membersRef.current[closestIndex];
 
     if (!closestMember) return;
 
-    setActiveMember((current) => {
-      if (current.id === closestMember.id) {
-        return current;
-      }
-
-      return closestMember;
-    });
+    setActiveId(closestMember.id);
   };
 
   /* =========================================================
@@ -91,7 +113,7 @@ const MemberTeam = () => {
     const gallery = galleryRef.current;
 
     // Immediately make clicked member active
-    setActiveMember(member);
+    setActiveId(member.id);
 
     // Remember exactly which member was clicked
     clickedMemberRef.current = member.id;
@@ -229,12 +251,12 @@ const MemberTeam = () => {
           clickedMemberRef.current;
 
         const selectedMember =
-          members.find(
+          membersRef.current.find(
             (item) => item.id === clickedId
           );
 
         if (selectedMember) {
-          setActiveMember(selectedMember);
+          setActiveId(selectedMember.id);
         }
 
         clickedMemberRef.current = null;
@@ -399,7 +421,7 @@ const MemberTeam = () => {
           {members.map((member) => {
 
             const isActive =
-              activeMember.id === member.id;
+              activeMember?.id === member.id;
 
             return (
               <button
@@ -446,17 +468,17 @@ const MemberTeam = () => {
         </span>
 
         <h2 className="member-name">
-          {activeMember.name}
+          {activeMember?.name}
         </h2>
 
         <h3 className="member-designation">
-          {activeMember.designation}
+          {activeMember?.designation}
         </h3>
 
         <div className="member-divider" />
 
         <p className="member-description">
-          {activeMember.description}
+          {activeMember?.description}
         </p>
 
       </div>

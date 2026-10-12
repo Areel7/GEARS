@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 import ScrollToTop from "./components/ScrollToTop";
@@ -11,6 +11,10 @@ import OurGalleryPage from "./pages/OurGallery";
 import AllTeam from "./pages/AllTeam";
 import Contact from "./pages/Contact";
 import Registration from "./pages/Registration";
+
+import { SiteSettingsProvider } from "./context/SiteSettingsContext";
+import AdminApp from "./admin/AdminApp";
+import { isAdminPath } from "./admin/routes";
 
 
 function PageWrapper({ children }) {
@@ -123,8 +127,28 @@ function AnimatedRoutes() {
 
 
 function App() {
+  const location = useLocation();
+
+  /*
+    The old public sign-in address no longer exists. Catch it before
+    the admin shell loads so nothing of the dashboard is rendered.
+  */
+  if (location.pathname === "/admin/login") {
+    return <Navigate to="/" replace />;
+  }
+
+  /*
+    The admin dashboard is a separate application with its own shell
+    and theme. It deliberately renders outside the public header and
+    footer, and is not linked from the public navigation. Its sign-in
+    page sits on its own unguessable path - see admin/routes.js.
+  */
+  if (isAdminPath(location.pathname)) {
+    return <AdminApp />;
+  }
+
   return (
-    <>
+    <SiteSettingsProvider>
       <ScrollToTop />
 
       <Header />
@@ -134,7 +158,7 @@ function App() {
       </main>
 
       <Footer />
-    </>
+    </SiteSettingsProvider>
   );
 }
 

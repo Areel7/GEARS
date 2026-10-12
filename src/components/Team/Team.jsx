@@ -4,7 +4,12 @@ import teamImage2 from "../../assets/images/Sir-Umer.png";
 import teamImage3 from "../../assets/images/Sir-Umair.png";
 import teamImage4 from "../../assets/images/Sir-Suhaib.png";
 
-const members = [
+import { publicApi } from "../../services/api";
+import { useRemoteData } from "../../hooks/useRemoteData";
+
+/* Shipped with the site; used until the backend responds, and kept
+   as the fallback if it cannot be reached. */
+const fallbackMembers = [
     {
         id: 1,
         name: "Hassan Sultan",
@@ -32,6 +37,12 @@ const members = [
 ];
 
 const Team = () => {
+    const { data: members } = useRemoteData(
+        publicApi.home,
+        (response) => response?.supervisors,
+        fallbackMembers
+    );
+
     return (
         <section className="team" id="team">
 

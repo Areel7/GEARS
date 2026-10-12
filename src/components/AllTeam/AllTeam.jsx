@@ -7,6 +7,9 @@ import {
   allPresidents,
 } from "./AllTeamData";
 
+import { publicApi } from "../../services/api";
+import { useRemoteData } from "../../hooks/useRemoteData";
+
 
 /* =========================================================
    IMAGE FALLBACK
@@ -81,6 +84,42 @@ const SectionHeading = ({
 ========================================================= */
 
 const AllTeam = () => {
+  /*
+    One request feeds all four sections. Each falls back to the
+    content that shipped with the site, so the page is never blank
+    and looks identical if the backend is unavailable.
+  */
+  const { data: team } = useRemoteData(
+    publicApi.team,
+    (response) =>
+      response?.leadership
+        ? {
+            leadership: response.leadership,
+            coreTeam: response.coreTeam,
+            alumni: response.alumni,
+            presidents: response.presidents,
+          }
+        : null,
+    {
+      leadership: leadershipTeam,
+      coreTeam,
+      alumni: alumniOfYear,
+      presidents: allPresidents,
+    }
+  );
+
+  const leadershipList = team.leadership?.length
+    ? team.leadership
+    : leadershipTeam;
+
+  const coreTeamList = team.coreTeam?.length ? team.coreTeam : coreTeam;
+
+  const alumniList = team.alumni?.length ? team.alumni : alumniOfYear;
+
+  const presidentList = team.presidents?.length
+    ? team.presidents
+    : allPresidents;
+
   return (
     <main className="all-team">
 
@@ -137,7 +176,7 @@ const AllTeam = () => {
 
           <div className="leadership-list">
 
-            {leadershipTeam.map(
+            {leadershipList.map(
               (member, index) => (
 
                 <article
@@ -214,7 +253,7 @@ const AllTeam = () => {
 
           <div className="core-team-grid">
 
-            {coreTeam.map(
+            {coreTeamList.map(
               (member, index) => (
 
                 <article
@@ -304,7 +343,7 @@ const AllTeam = () => {
 
           <div className="alumni-grid">
 
-            {alumniOfYear.map(
+            {alumniList.map(
               (alumni, index) => (
 
                 <article
@@ -382,7 +421,7 @@ const AllTeam = () => {
 
           <div className="presidents-grid">
 
-            {allPresidents.map(
+            {presidentList.map(
               (president) => (
 
                 <article

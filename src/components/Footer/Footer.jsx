@@ -1,8 +1,12 @@
 import "./Footer.css";
 import gearsLogo from "../../assets/images/gears-logo.png";
+import { useSiteSettings } from "../../context/SiteSettingsContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  /* Registration link visibility is controlled from Admin > Settings. */
+  const { registrationEnabled } = useSiteSettings();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -123,10 +127,12 @@ const Footer = () => {
               Achievements
             </a>
 
-            <a href="/registration">
-              <span>06</span>
-              Registration
-            </a>
+            {registrationEnabled && (
+              <a href="/registration">
+                <span>06</span>
+                Registration
+              </a>
+            )}
 
             <a href="/contact">
               <span>07</span>

@@ -5,6 +5,9 @@ import "./OurGallery.css";
 import galleryImages from "./GalleryData";
 import timelineData from "./TimelineData";
 
+import { publicApi } from "../../services/api";
+import { useRemoteData } from "../../hooks/useRemoteData";
+
 
 // ===============================
 // GALLERY CARD
@@ -108,6 +111,12 @@ const TimelineCard = ({ item, index }) => {
 // ===============================
 
 const OurGallery = () => {
+  const { data: images } = useRemoteData(
+    publicApi.gallery,
+    (response) => response?.images,
+    galleryImages
+  );
+
   return (
     <section className="our-gallery">
 
@@ -177,7 +186,7 @@ const OurGallery = () => {
 
         <div className="gallery-grid">
 
-          {galleryImages.map((item, index) => (
+          {images.map((item, index) => (
             <GalleryCard
               key={item.id}
               item={item}

@@ -5,12 +5,12 @@ import MemberTeam from "../components/MemberTeam/MemberTeam";
 import UpcomingSection from "../components/UpcomingSection/UpcomingSection";
 import Gallery from "../components/Gallery/Gallery";
 import TopCta from "../components/TopCta/TopCta";
-import Popup from "../components/RegistrationPopup/RegistrationPopup";
+// import Popup from "../components/RegistrationPopup/RegistrationPopup";
 
 const Home = () => {
   return (
     <>
-      <Popup />
+      
 
       <Hero />
 

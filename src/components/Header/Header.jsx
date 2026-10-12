@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 import gearsLogo from "../../assets/images/gears-logo.png";
+import { useSiteSettings } from "../../context/SiteSettingsContext";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scroll, setScroll] = useState(false);
+
+  /* Registration link visibility is controlled from Admin > Settings. */
+  const { registrationEnabled } = useSiteSettings();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,11 +67,13 @@ const Header = () => {
           </Link>
 
 
-          {/* if registration is off commentthe below link registration part and also comment form the Pages/Home.jsx file sa bi comment kar dana */}
-          
-          <Link to="/registration" onClick={closeMenu}>
-            Registration
-          </Link>
+          {/* Shown only while registration is switched ON in the admin. */}
+
+          {registrationEnabled && (
+            <Link to="/registration" onClick={closeMenu}>
+              Registration
+            </Link>
+          )}
 
           <Link to="/contact" onClick={closeMenu}>
             Contact Us  

@@ -2,6 +2,9 @@ import { useState } from "react";
 import "./Gallery.css";
 import galleryImages from "./GalleryData";
 
+import { publicApi } from "../../services/api";
+import { useRemoteData } from "../../hooks/useRemoteData";
+
 const GalleryCard = ({ item, index }) => {
   const [orientation, setOrientation] = useState("");
 
@@ -40,6 +43,16 @@ const GalleryCard = ({ item, index }) => {
 };
 
 const Gallery = () => {
+  /*
+    The backend already applies the configured home display limit, so
+    adding images in the admin cannot overflow this fixed CSS grid.
+  */
+  const { data: images } = useRemoteData(
+    publicApi.home,
+    (response) => response?.images,
+    galleryImages
+  );
+
   return (
     <section className="gallery-section" id="gallery">
       {/* HEADING */}
@@ -67,7 +80,7 @@ const Gallery = () => {
         </div>
 
         <div className="gallery-container">
-          {galleryImages.map((item, index) => (
+          {images.map((item, index) => (
             <GalleryCard
               key={item.id}
               item={item}

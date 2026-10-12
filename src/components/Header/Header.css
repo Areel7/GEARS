@@ -157,6 +157,10 @@ body {
 
   justify-content: flex-end;
 
+  /* Keeps the links hard against the right edge, whatever
+     else sits in the header. */
+  margin-left: auto;
+
   gap: clamp(24px, 2.8vw, 42px);
 }
 
@@ -379,6 +383,8 @@ body {
 
     top: 0;
     right: -100%;
+
+    margin-left: 0;
 
     width: min(330px, 82vw);
 

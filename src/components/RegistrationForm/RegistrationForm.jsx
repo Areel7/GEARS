@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./RegistrationForm.css";
 
+import { publicApi } from "../../services/api";
+import { useSiteSettings } from "../../context/SiteSettingsContext";
+
 const semesters = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const RegistrationForm = () => {
@@ -21,12 +24,18 @@ const RegistrationForm = () => {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   /*
-    Google Apps Script deployment URL yahan paste karna hai
+    Registration is switched on and off from Admin > Settings and read
+    from MongoDB. The backend enforces the same rule, so a direct POST
+    while it is off is rejected regardless of what renders here.
   */
-  const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbwyH2Lehw7c3uhkuq7hCz5L3bQFGAmYN5dyhp4EBnTjB1OTuFefbFzNhhiSERjbx-CZaw/exec";
+  const {
+    registrationEnabled,
+    registrationClosedMessage,
+    loading: settingsLoading,
+  } = useSiteSettings();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -60,17 +69,6 @@ const RegistrationForm = () => {
     setMessage("");
   };
 
-  const convertImageToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = reject;
-
-      reader.readAsDataURL(file);
-    });
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -82,35 +80,23 @@ const RegistrationForm = () => {
     try {
       setLoading(true);
       setMessage("");
+      setSubmitted(false);
 
-      const imageBase64 =
-        await convertImageToBase64(picture);
+      /*
+        Sent as multipart so the photo is uploaded as a real file and
+        stored by the backend, instead of being inlined as base64.
+      */
+      const payload = new FormData();
 
-      const payload = {
-        ...formData,
-
-        picture: imageBase64,
-        pictureName: picture.name,
-        pictureType: picture.type,
-      };
-
-      const response = await fetch(SCRIPT_URL, {
-        method: "POST",
-
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        },
-
-        body: JSON.stringify(payload),
+      Object.entries(formData).forEach(([key, value]) => {
+        payload.append(key, value);
       });
 
-      const result = await response.json();
+      payload.append("picture", picture, picture.name);
 
-      if (!result.success) {
-        throw new Error(
-          result.message || "Registration failed."
-        );
-      }
+      await publicApi.submitRegistration(payload);
+
+      setSubmitted(true);
 
       setMessage(
         "Registration submitted successfully!"
@@ -131,19 +117,73 @@ const RegistrationForm = () => {
       setPicture(null);
       setPreview(null);
 
-      document.getElementById(
-        "student-picture"
-      ).value = "";
+      const input = document.getElementById("student-picture");
+      if (input) input.value = "";
     } catch (error) {
       console.error(error);
 
       setMessage(
-        "Unable to submit registration. Please try again."
+        error?.message ||
+          "Unable to submit registration. Please try again."
       );
     } finally {
       setLoading(false);
     }
   };
+
+  /* ===========================
+      CLOSED / LOADING STATES
+  =========================== */
+
+  if (settingsLoading) {
+    return (
+      <section className="registration-section">
+        <div className="registration-bg-text">LGU</div>
+
+        <div className="registration-container">
+          <div className="registration-state">
+            <span className="registration-spinner" />
+            <p>Loading registration...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!registrationEnabled) {
+    return (
+      <section className="registration-section">
+        <div className="registration-bg-text">LGU</div>
+
+        <div className="registration-container">
+          <div className="registration-header">
+            <span className="registration-tag">
+              STUDENT REGISTRATION
+            </span>
+
+            <h1>
+              REGISTRATION
+              <span> CLOSED</span>
+            </h1>
+          </div>
+
+          <div className="registration-state registration-closed">
+            <div className="registration-closed-icon">!</div>
+
+            <h2>
+              {registrationClosedMessage ||
+                "Registration is currently closed."}
+            </h2>
+
+            <p>
+              Follow our updates to hear when registration opens
+              again for the next intake.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="registration-section">
@@ -520,7 +560,11 @@ const RegistrationForm = () => {
 
 
           {message && (
-            <div className="form-message">
+            <div
+              className={`form-message ${
+                submitted ? "form-message-success" : ""
+              }`}
+            >
               {message}
             </div>
           )}

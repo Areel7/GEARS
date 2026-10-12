@@ -5,9 +5,11 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'server/node_modules', 'server/uploads']),
+
+  /* Frontend: React running in the browser */
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['src/**/*.{js,jsx}'],
     extends: [
       js.configs.recommended,
       reactHooks.configs.flat.recommended,
@@ -17,5 +19,23 @@ export default defineConfig([
       globals: globals.browser,
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
+  },
+
+  /* Backend: Node ESM, no React and no browser globals */
+  {
+    files: ['server/**/*.js'],
+    extends: [js.configs.recommended],
+    languageOptions: {
+      globals: globals.node,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+  },
+
+  /* Build/tooling config at the repo root */
+  {
+    files: ['*.config.js'],
+    extends: [js.configs.recommended],
+    languageOptions: { globals: globals.node },
   },
 ])
